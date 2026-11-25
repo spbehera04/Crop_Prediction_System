@@ -1,0 +1,22 @@
+[
+  {"id": "1", "crop": "Wheat", "state": "Punjab", "district": "Ludhiana", "price": 2125, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"},
+  {"id": "2", "crop": "Wheat", "state": "Uttar Pradesh", "district": "Meerut", "price": 2100, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "3", "crop": "Wheat", "state": "Haryana", "district": "Karnal", "price": 2110, "unit": "₹/quintal", "date": "2025-10-27", "trend": "up"},
+  {"id": "4", "crop": "Rice", "state": "West Bengal", "district": "Bardhaman", "price": 2200, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"},
+  {"id": "5", "crop": "Rice", "state": "Odisha", "district": "Cuttack", "price": 2180, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "6", "crop": "Rice", "state": "Tamil Nadu", "district": "Chennai", "price": 2250, "unit": "₹/quintal", "date": "2025-10-27", "trend": "up"},
+  {"id": "7", "crop": "Cotton", "state": "Maharashtra", "district": "Nagpur", "price": 6800, "unit": "₹/quintal", "date": "2025-10-28", "trend": "down"},
+  {"id": "8", "crop": "Cotton", "state": "Gujarat", "district": "Ahmedabad", "price": 6750, "unit": "₹/quintal", "date": "2025-10-27", "trend": "stable"},
+  {"id": "9", "crop": "Sugarcane", "state": "Uttar Pradesh", "district": "Meerut", "price": 315, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "10", "crop": "Sugarcane", "state": "Maharashtra", "district": "Mumbai", "price": 305, "unit": "₹/quintal", "date": "2025-10-27", "trend": "up"},
+  {"id": "11", "crop": "Maize", "state": "Karnataka", "district": "Bangalore", "price": 1900, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"},
+  {"id": "12", "crop": "Maize", "state": "Bihar", "district": "Patna", "price": 1850, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "13", "crop": "Potato", "state": "West Bengal", "district": "Bardhaman", "price": 1200, "unit": "₹/quintal", "date": "2025-10-28", "trend": "down"},
+  {"id": "14", "crop": "Potato", "state": "Uttar Pradesh", "district": "Varanasi", "price": 1150, "unit": "₹/quintal", "date": "2025-10-27", "trend": "down"},
+  {"id": "15", "crop": "Tomato", "state": "Karnataka", "district": "Bangalore", "price": 2500, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"},
+  {"id": "16", "crop": "Tomato", "state": "Maharashtra", "district": "Mumbai", "price": 2800, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"},
+  {"id": "17", "crop": "Groundnut", "state": "Gujarat", "district": "Ahmedabad", "price": 5500, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "18", "crop": "Groundnut", "state": "Andhra Pradesh", "district": "Hyderabad", "price": 5450, "unit": "₹/quintal", "date": "2025-10-27", "trend": "up"},
+  {"id": "19", "crop": "Pulses (Lentils)", "state": "Madhya Pradesh", "district": "Bhopal", "price": 5800, "unit": "₹/quintal", "date": "2025-10-28", "trend": "stable"},
+  {"id": "20", "crop": "Pulses (Lentils)", "state": "Rajasthan", "district": "Jaipur", "price": 5750, "unit": "₹/quintal", "date": "2025-10-28", "trend": "up"}
+]

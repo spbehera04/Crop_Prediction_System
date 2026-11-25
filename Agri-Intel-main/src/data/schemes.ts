@@ -1,0 +1,187 @@
+import { GovernmentScheme } from '../types';
+
+export const governmentSchemes: GovernmentScheme[] = [
+  {
+    scheme_id: 'PMFBY',
+    scheme_name: {
+      en: 'Pradhan Mantri Fasal Bima Yojana (PMFBY)',
+      hi: 'प्रधानमंत्री फसल बीमा योजना',
+      od: 'ପ୍ରଧାନମନ୍ତ୍ରୀ ଫସଲ ବୀମା ଯୋଜନା',
+      ta: 'பிரதம மந்திரி பசல் பீமா யோஜனா',
+    },
+    crop_types: ['wheat', 'rice', 'cotton', 'sugarcane', 'maize', 'pulses', 'groundnut'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Comprehensive crop insurance scheme providing financial support to farmers in case of crop loss due to natural calamities, pests and diseases.',
+      hi: 'प्राकृतिक आपदाओं, कीटों और बीमारियों के कारण फसल नुकसान की स्थिति में किसानों को वित्तीय सहायता प्रदान करने वाली व्यापक फसल बीमा योजना।',
+      od: 'ପ୍ରାକୃତିକ ବିପର୍ଯ୍ୟୟ, କୀଟପତଙ୍ଗ ଏବଂ ରୋଗ କାରଣରୁ ଫସଲ କ୍ଷତି ହେଲେ କୃଷକମାନଙ୍କୁ ଆର୍ଥିକ ସହାୟତା ପ୍ରଦାନ କରୁଥିବା ବ୍ୟାପକ ଫସଲ ବୀମା ଯୋଜନା।',
+      ta: 'இயற்கை பேரிடர்கள், பூச்சிகள் மற்றும் நோய்களால் பயிர் இழப்பு ஏற்பட்டால் விவசாயிகளுக்கு நிதி உதவி வழங்கும் விரிவான பயிர் காப்பீட்டு திட்டம்.',
+    },
+    eligibility: [
+      'All farmers growing notified crops',
+      'Compulsory for loanee farmers',
+      'Voluntary for non-loanee farmers',
+    ],
+    link: 'https://pmfby.gov.in',
+  },
+  {
+    scheme_id: 'PMKSY',
+    scheme_name: {
+      en: 'Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)',
+      hi: 'प्रधानमंत्री कृषि सिंचाई योजना',
+      od: 'ପ୍ରଧାନମନ୍ତ୍ରୀ କୃଷି ସିଞ୍ଚାଇ ଯୋଜନା',
+      ta: 'பிரதம மந்திரி கிருஷி சிஞ்சாயி யோஜனா',
+    },
+    crop_types: ['All crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Scheme to expand cultivable area under irrigation, improve water use efficiency and adopt precision-irrigation technologies.',
+      hi: 'सिंचाई के तहत खेती योग्य क्षेत्र का विस्तार करने, जल उपयोग दक्षता में सुधार और सटीक सिंचाई प्रौद्योगिकियों को अपनाने के लिए योजना।',
+      od: 'ଜଳସେଚନ ଅଧୀନରେ ଚାଷଯୋଗ୍ୟ କ୍ଷେତ୍ର ବିସ୍ତାର କରିବା, ଜଳ ବ୍ୟବହାର ଦକ୍ଷତା ଉନ୍ନତ କରିବା ଏବଂ ସଠିକ୍ ଜଳସେଚନ ପ୍ରଯୁକ୍ତିବିଦ୍ୟା ଗ୍ରହଣ କରିବା ପାଇଁ ଯୋଜନା।',
+      ta: 'நீர்ப்பாசனத்தின் கீழ் விவசாயத்திற்கு உரிய பரப்பை விரிவுபடுத்த, நீர் பயன்பாட்டு திறனை மேம்படுத்த மற்றும் துல்லியமான நீர்ப்பாசன தொழில்நுட்பங்களை ஏற்றுக்கொள்வதற்கான திட்டம்.',
+    },
+    eligibility: [
+      'Individual farmers',
+      'Self Help Groups',
+      'Incorporated companies',
+      'Farmer Producer Organizations',
+    ],
+    link: 'https://pmksy.gov.in',
+  },
+  {
+    scheme_id: 'PMKISAN',
+    scheme_name: {
+      en: 'PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)',
+      hi: 'पीएम-किसान (प्रधानमंत्री किसान सम्मान निधि)',
+      od: 'ପିଏମ୍-କିସାନ (ପ୍ରଧାନମନ୍ତ୍ରୀ କିସାନ ସମ୍ମାନ ନିଧି)',
+      ta: 'பிஎம்-கிசான் (பிரதம மந்திரி கிசான் சம்மான் நிதி)',
+    },
+    crop_types: ['All crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Income support scheme providing ₹6000 per year in three equal installments directly to farmer bank accounts.',
+      hi: 'आय सहायता योजना जो किसान बैंक खातों में सीधे तीन समान किस्तों में प्रति वर्ष ₹6000 प्रदान करती है।',
+      od: 'ଆୟ ସହାୟତା ଯୋଜନା ଯାହା କୃଷକ ବ୍ୟାଙ୍କ ଖାତାରେ ସିଧାସଳଖ ତିନୋଟି ସମାନ କିସ୍ତିରେ ବର୍ଷକୁ ₹୬୦୦୦ ପ୍ରଦାନ କରେ।',
+      ta: 'விவசாயிகளின் வங்கிக் கணக்குகளுக்கு நேரடியாக மூன்று சம தவணைகளில் ஆண்டுக்கு ₹6000 வழங்கும் வருமான ஆதரவு திட்டம்.',
+    },
+    eligibility: [
+      'All landholding farmers',
+      'Small and marginal farmers',
+      'Must have valid Aadhaar card',
+      'Bank account linked to Aadhaar',
+    ],
+    link: 'https://pmkisan.gov.in',
+  },
+  {
+    scheme_id: 'KCC',
+    scheme_name: {
+      en: 'Kisan Credit Card (KCC)',
+      hi: 'किसान क्रेडिट कार्ड',
+      od: 'କିସାନ କ୍ରେଡିଟ କାର୍ଡ',
+      ta: 'கிசான் கிரெடிட் கார்டு',
+    },
+    crop_types: ['All crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Credit facility for farmers to meet agricultural expenses with interest subvention of 2% and prompt repayment incentive of 3%.',
+      hi: 'किसानों के लिए कृषि खर्चों को पूरा करने के लिए क्रेडिट सुविधा जिसमें 2% ब्याज सब्वेंशन और 3% त्वरित पुनर्भुगतान प्रोत्साहन है।',
+      od: 'କୃଷକମାନଙ୍କ ପାଇଁ କୃଷି ଖର୍ଚ୍ଚ ପୂରଣ କରିବାକୁ କ୍ରେଡିଟ ସୁବିଧା ଯେଉଁଥିରେ ୨% ସୁଧ ସବଭେନସନ ଏବଂ ୩% ତ୍ୱରିତ ପୁନଃପ୍ରଦାନ ପ୍ରୋତ୍ସାହନ ରହିଛି।',
+      ta: '2% வட்டி மானியம் மற்றும் 3% விரைவான திருப்பிச் செலுத்துதல் ஊக்கத்தொகையுடன் விவசாய செலவுகளை பூர்த்தி செய்ய விவசாயிகளுக்கான கடன் வசதி.',
+    },
+    eligibility: [
+      'All farmers including tenant farmers',
+      'Self Help Groups',
+      'Joint Liability Groups',
+    ],
+    link: 'https://www.nabard.org/auth/writereaddata/tender/1607201416KCC.pdf',
+  },
+  {
+    scheme_id: 'SOIL_HEALTH',
+    scheme_name: {
+      en: 'Soil Health Card Scheme',
+      hi: 'मृदा स्वास्थ्य कार्ड योजना',
+      od: 'ମୃତ୍ତିକା ସ୍ୱାସ୍ଥ୍ୟ କାର୍ଡ ଯୋଜନା',
+      ta: 'மண் ஆரோக்கிய அட்டை திட்டம்',
+    },
+    crop_types: ['All crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Provides soil health cards to farmers every 2 years with information on nutrient status and recommendations on fertilizer dosage.',
+      hi: 'किसानों को हर 2 साल में पोषक तत्व स्थिति की जानकारी और उर्वरक खुराक पर सिफारिशों के साथ मृदा स्वास्थ्य कार्ड प्रदान करता है।',
+      od: 'କୃଷକମାନଙ୍କୁ ପ୍ରତି ୨ ବର୍ଷରେ ପୋଷକ ସ୍ଥିତି ସୂଚନା ଏବଂ ସାର ମାତ୍ରା ଉପରେ ସୁପାରିଶ ସହିତ ମୃତ୍ତିକା ସ୍ୱାସ୍ଥ୍ୟ କାର୍ଡ ପ୍ରଦାନ କରେ।',
+      ta: 'ஊட்டச்சத்து நிலை பற்றிய தகவல் மற்றும் உர அளவு பரிந்துரைகளுடன் ஒவ்வொரு 2 ஆண்டுகளுக்கும் விவசாயிகளுக்கு மண் ஆரோக்கிய அட்டைகளை வழங்குகிறது.',
+    },
+    eligibility: [
+      'All farmers',
+      'Free of cost',
+    ],
+    link: 'https://soilhealth.dac.gov.in',
+  },
+  {
+    scheme_id: 'PARAMPARAGAT',
+    scheme_name: {
+      en: 'Paramparagat Krishi Vikas Yojana (PKVY)',
+      hi: 'परंपरागत कृषि विकास योजना',
+      od: 'ପରମ୍ପରାଗତ କୃଷି ବିକାଶ ଯୋଜନା',
+      ta: 'பாரம்பராகத் கிருஷி விகாஸ் யோஜனா',
+    },
+    crop_types: ['All organic crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Promotes organic farming through cluster approach with financial assistance of ₹50,000 per hectare for 3 years.',
+      hi: 'क्लस्टर दृष्टिकोण के माध्यम से जैविक खेती को बढ़ावा देता है, 3 साल के लिए प्रति हेक्टेयर ₹50,000 की वित्तीय सहायता के साथ।',
+      od: 'କ୍ଲଷ୍ଟର ପଦ୍ଧତି ମାଧ୍ୟମରେ ଜୈବିକ ଚାଷକୁ ପ୍ରୋତ୍ସାହିତ କରେ ଯେଉଁଥିରେ ୩ ବର୍ଷ ପାଇଁ ପ୍ରତି ହେକ୍ଟର ₹୫୦,୦୦୦ ଆର୍ଥିକ ସହାୟତା ମିଳେ।',
+      ta: 'கொத்து அணுகுமுறை மூலம் இயற்கை விவசாயத்தை ஊக்குவிக்கிறது, 3 ஆண்டுகளுக்கு ஹெக்டேருக்கு ₹50,000 நிதி உதவியுடன்.',
+    },
+    eligibility: [
+      'Groups of farmers (minimum 50)',
+      'Cluster size of 50 hectares',
+    ],
+    link: 'https://pgsindia-ncof.gov.in',
+  },
+  {
+    scheme_id: 'MARKET_INTERVENTION',
+    scheme_name: {
+      en: 'Market Intervention Scheme (MIS)',
+      hi: 'बाजार हस्तक्षेप योजना',
+      od: 'ବଜାର ହସ୍ତକ୍ଷେପ ଯୋଜନା',
+      ta: 'சந்தை தலையீட்டு திட்டம்',
+    },
+    crop_types: ['potato', 'tomato', 'groundnut', 'pulses'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Provides support to farmers during glut situations when market prices fall below economic levels for perishable commodities.',
+      hi: 'जब नाशवान वस्तुओं के लिए बाजार मूल्य आर्थिक स्तर से नीचे गिर जाते हैं तो अधिशेष स्थितियों के दौरान किसानों को सहायता प्रदान करता है।',
+      od: 'ନଷ୍ଟ ହେବାକୁ ଥିବା ଦ୍ରବ୍ୟଗୁଡିକ ପାଇଁ ବଜାର ମୂଲ୍ୟ ଅର୍ଥନୈତିକ ସ୍ତରରୁ ତଳକୁ ଖସି ଯିବା ସମୟରେ ଅତ୍ୟଧିକ ଉତ୍ପାଦନ ପରିସ୍ଥିତିରେ କୃଷକମାନଙ୍କୁ ସହାୟତା ପ୍ରଦାନ କରେ।',
+      ta: 'அழுகக்கூடிய பொருட்களுக்கான சந்தை விலைகள் பொருளாதார நிலைகளுக்குக் கீழே விழும்போது அதிக உற்பத்தி சூழ்நிலைகளில் விவசாயிகளுக்கு ஆதரவை வழங்குகிறது.',
+    },
+    eligibility: [
+      'Farmers of notified commodities',
+      'State government recommendation required',
+    ],
+    link: 'https://dfpd.gov.in',
+  },
+  {
+    scheme_id: 'AGRI_MECHANIZATION',
+    scheme_name: {
+      en: 'Sub-Mission on Agricultural Mechanization (SMAM)',
+      hi: 'कृषि यंत्रीकरण पर उप-मिशन',
+      od: 'କୃଷି ଯାନ୍ତ୍ରୀକରଣ ଉପ-ମିଶନ',
+      ta: 'விவசாய இயந்திரமயமாக்கல் துணை-பணி',
+    },
+    crop_types: ['All crops'],
+    region_applicable: ['All India'],
+    description: {
+      en: 'Provides financial assistance to farmers for purchase of agricultural machinery and equipment with subsidy up to 50% for SC/ST farmers.',
+      hi: 'अनुसूचित जाति/जनजाति किसानों के लिए 50% तक की सब्सिडी के साथ कृषि मशीनरी और उपकरण की खरीद के लिए किसानों को वित्तीय सहायता प्रदान करता है।',
+      od: 'ଅନୁସୂଚିତ ଜାତି/ଜନଜାତି କୃଷକମାନଙ୍କ ପାଇଁ ୫୦% ପର୍ଯ୍ୟନ୍ତ ସବସିଡି ସହିତ କୃଷି ଯନ୍ତ୍ରପାତି ଓ ଉପକରଣ କ୍ରୟ ପାଇଁ କୃଷକମାନଙ୍କୁ ଆର୍ଥିକ ସହାୟତା ପ୍ରଦାନ କରେ।',
+      ta: 'SC/ST விவசாயிகளுக்கு 50% வரை மானியத்துடன் விவசாய இயந்திரங்கள் மற்றும் உபகரணங்களை வாங்குவதற்கு விவசாயிகளுக்கு நிதி உதவி வழங்குகிறது.',
+    },
+    eligibility: [
+      'Individual farmers',
+      'Custom Hiring Centers',
+      'FPOs',
+    ],
+    link: 'https://agrimachinery.nic.in',
+  },
+];

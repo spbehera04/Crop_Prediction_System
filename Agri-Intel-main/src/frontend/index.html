@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriIntel - Smart Crop Recommendation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22c55e',
+                        'primary-dark': '#16a34a',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#22c55e">
+    <meta name="description" content="AI-powered crop recommendation system for Indian farmers">
+    <style>
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .listening {
+            animation: pulse-opacity 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-primary">AgriIntel</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <select id="languageSelector" class="px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="od">ଓଡ଼ିଆ</option>
+                        <option value="ta">தமிழ்</option>
+                    </select>
+                    <button id="installBtn" class="hidden w-10 h-10 flex items-center justify-center border border-gray-300 bg-white rounded-full hover:bg-gray-50 transition-colors">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-[73px] z-40">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex gap-2 overflow-x-auto py-2">
+                <button class="nav-tab flex items-center gap-2 px-6 py-3 rounded-lg transition-all text-sm font-medium whitespace-nowrap bg-primary text-white" data-view="home">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                    <span>Home</span>
+                </button>
+                <button class="nav-tab flex items-center gap-2 px-6 py-3 rounded-lg transition-all text-sm font-medium whitespace-nowrap text-gray-600 hover:bg-gray-50" data-view="recommendations">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <span>Recommend</span>
+                </button>
+                <button class="nav-tab flex items-center gap-2 px-6 py-3 rounded-lg transition-all text-sm font-medium whitespace-nowrap text-gray-600 hover:bg-gray-50" data-view="schemes">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Schemes</span>
+                </button>
+                <button class="nav-tab flex items-center gap-2 px-6 py-3 rounded-lg transition-all text-sm font-medium whitespace-nowrap text-gray-600 hover:bg-gray-50" data-view="prices">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <span>Prices</span>
+                </button>
+                <button class="nav-tab flex items-center gap-2 px-6 py-3 rounded-lg transition-all text-sm font-medium whitespace-nowrap text-gray-600 hover:bg-gray-50" data-view="history">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>History</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-8 pb-16 min-h-[calc(100vh-200px)]">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Home View -->
+            <div id="homeView" class="view block">
+                <div class="text-center py-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight" data-translate="hero_title">Smart Crop Recommendations for Indian Farmers</h1>
+                    <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto" data-translate="hero_subtitle">Get AI-powered crop suggestions based on your region, weather, and soil conditions</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                            <div class="text-5xl mb-4">🌾</div>
+                            <h3 class="text-xl font-semibold mb-2" data-translate="feature_ai">AI-Powered</h3>
+                            <p class="text-sm text-gray-600" data-translate="feature_ai_desc">Smart recommendations based on scientific data</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                            <div class="text-5xl mb-4">🌍</div>
+                            <h3 class="text-xl font-semibold mb-2" data-translate="feature_regional">Regional Data</h3>
+                            <p class="text-sm text-gray-600" data-translate="feature_regional_desc">Covers all major Indian states</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                            <div class="text-5xl mb-4">🎤</div>
+                            <h3 class="text-xl font-semibold mb-2" data-translate="feature_voice">Voice Input</h3>
+                            <p class="text-sm text-gray-600" data-translate="feature_voice_desc">Speak in your language</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                            <div class="text-5xl mb-4">📱</div>
+                            <h3 class="text-xl font-semibold mb-2" data-translate="feature_offline">Offline Ready</h3>
+                            <p class="text-sm text-gray-600" data-translate="feature_offline_desc">Works without internet</p>
+                        </div>
+                    </div>
+
+                    <button onclick="switchView('recommendations')" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl text-lg">
+                        <span data-translate="get_started">Get Started</span>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Chatbot Section -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-bold text-center mb-6" data-translate="ask_expert">Ask Our Farming Expert</h2>
+                    <div class="bg-white rounded-xl shadow-sm max-w-4xl mx-auto overflow-hidden">
+                        <div id="chatMessages" class="h-96 overflow-y-auto p-6 flex flex-col gap-4">
+                            <div class="flex gap-3 items-start">
+                                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 text-2xl">🤖</div>
+                                <div class="bg-gray-100 rounded-lg p-3 max-w-[70%]">
+                                    <p data-translate="chatbot_welcome">Hello! I'm your farming assistant. Ask me about weather, irrigation, fertilizers, pests, soil health, subsidies, market prices, or crop seasons.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-gray-200 flex gap-2">
+                            <input type="text" id="chatInput" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Type your question..." data-translate-placeholder="chat_placeholder">
+                            <button id="voiceChatBtn" class="w-12 h-12 flex items-center justify-center border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+                                </svg>
+                            </button>
+                            <button id="sendChatBtn" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors flex items-center justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations View -->
+            <div id="recommendationsView" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6" data-translate="get_recommendations">Get Crop Recommendations</h2>
+                
+                <form id="recommendationForm" class="bg-white p-8 rounded-xl shadow-sm mb-8">
+                    <!-- Region Selection -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4" data-translate="select_region">Select Your Region</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block font-medium mb-2" for="stateSelect" data-translate="state">State</label>
+                                <select id="stateSelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2" for="districtSelect" data-translate="district">District</label>
+                                <select id="districtSelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                    <option value="">Select District</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" id="detectLocationBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span data-translate="detect_location">Auto-detect Location</span>
+                        </button>
+                    </div>
+
+                    <!-- Weather Parameters -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4" data-translate="weather_params">Weather & Soil Parameters</h3>
+                        <button type="button" id="fetchWeatherBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors mb-4">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            </svg>
+                            <span data-translate="fetch_weather">Fetch Current Weather</span>
+                        </button>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block font-medium mb-2" for="temperature" data-translate="temperature">Temperature (°C)</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="temperature" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="25" required>
+                                    <button type="button" class="voice-btn w-12 h-12 flex items-center justify-center border border-gray-300 bg-white rounded-lg hover:bg-primary hover:border-primary hover:text-white transition-colors" data-field="temperature">
+                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2" for="rainfall" data-translate="rainfall">Annual Rainfall (mm)</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="rainfall" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="800" required>
+                                    <button type="button" class="voice-btn w-12 h-12 flex items-center justify-center border border-gray-300 bg-white rounded-lg hover:bg-primary hover:border-primary hover:text-white transition-colors" data-field="rainfall">
+                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-medium mb-2" for="humidity" data-translate="humidity">Humidity (%)</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="humidity" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="65" required>
+                                    <button type="button" class="voice-btn w-12 h-12 flex items-center justify-center border border-gray-300 bg-white rounded-lg hover:bg-primary hover:border-primary hover:text-white transition-colors" data-field="humidity">
+                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2" for="soilType" data-translate="soil_type">Soil Type</label>
+                                <select id="soilType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                    <option value="">Select Soil Type</option>
+                                    <option value="Loamy">Loamy</option>
+                                    <option value="Clay">Clay</option>
+                                    <option value="Sandy">Sandy</option>
+                                    <option value="Clay Loam">Clay Loam</option>
+                                    <option value="Sandy Loam">Sandy Loam</option>
+                                    <option value="Black Soil">Black Soil</option>
+                                    <option value="Red Soil">Red Soil</option>
+                                    <option value="Alluvial">Alluvial</option>
+                                    <option value="Laterite">Laterite</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl text-lg w-full md:w-auto">
+                        <span data-translate="get_recommendations">Get Recommendations</span>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="hidden mt-8">
+                    <h2 class="text-3xl font-bold mb-6" data-translate="recommended_crops">Recommended Crops</h2>
+                    <div id="resultsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </div>
+            </div>
+
+            <!-- Government Schemes View -->
+            <div id="schemesView" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6" data-translate="govt_schemes">Government Schemes</h2>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-medium mb-2" for="schemeStateFilter" data-translate="filter_state">Filter by State</label>
+                            <select id="schemeStateFilter" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium mb-2" for="schemeCategoryFilter" data-translate="filter_category">Filter by Category</label>
+                            <select id="schemeCategoryFilter" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">All Categories</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Income Support">Income Support</option>
+                                <option value="Credit">Credit</option>
+                                <option value="Subsidy">Subsidy</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="schemesContainer" class="space-y-4"></div>
+            </div>
+
+            <!-- Market Prices View -->
+            <div id="pricesView" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6" data-translate="market_prices">Market Prices</h2>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-medium mb-2" for="priceStateFilter" data-translate="filter_state">Filter by State</label>
+                            <select id="priceStateFilter" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium mb-2" for="priceCropFilter" data-translate="filter_crop">Filter by Crop</label>
+                            <input type="text" id="priceCropFilter" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search crop...">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pricesContainer" class="bg-white rounded-xl shadow-sm overflow-hidden"></div>
+            </div>
+
+            <!-- History View -->
+            <div id="historyView" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6" data-translate="prediction_history">Prediction History</h2>
+                <div id="historyContainer" class="space-y-4"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+            <p>&copy; 2025 AgriIntel. Built for Indian Farmers.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]">
+        <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>

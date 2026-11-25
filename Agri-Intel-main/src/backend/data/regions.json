@@ -1,0 +1,22 @@
+[
+  {"id": "PB-LDH", "state_name": "Punjab", "district_name": "Ludhiana", "avg_temp": 24, "avg_rainfall": 700, "avg_humidity": 65, "soil_types": ["Alluvial", "Loamy", "Sandy Loam"]},
+  {"id": "PB-AMR", "state_name": "Punjab", "district_name": "Amritsar", "avg_temp": 23, "avg_rainfall": 650, "avg_humidity": 64, "soil_types": ["Alluvial", "Sandy Loam"]},
+  {"id": "HR-KRK", "state_name": "Haryana", "district_name": "Karnal", "avg_temp": 25, "avg_rainfall": 600, "avg_humidity": 62, "soil_types": ["Alluvial", "Sandy Loam", "Loamy"]},
+  {"id": "UP-MRT", "state_name": "Uttar Pradesh", "district_name": "Meerut", "avg_temp": 25, "avg_rainfall": 800, "avg_humidity": 68, "soil_types": ["Alluvial", "Loamy", "Clay Loam"]},
+  {"id": "UP-VNS", "state_name": "Uttar Pradesh", "district_name": "Varanasi", "avg_temp": 26, "avg_rainfall": 900, "avg_humidity": 70, "soil_types": ["Alluvial", "Loamy"]},
+  {"id": "WB-BRD", "state_name": "West Bengal", "district_name": "Bardhaman", "avg_temp": 27, "avg_rainfall": 1400, "avg_humidity": 75, "soil_types": ["Alluvial", "Laterite", "Clay"]},
+  {"id": "OD-CTC", "state_name": "Odisha", "district_name": "Cuttack", "avg_temp": 28, "avg_rainfall": 1500, "avg_humidity": 78, "soil_types": ["Alluvial", "Laterite", "Red Soil"]},
+  {"id": "OD-BBN", "state_name": "Odisha", "district_name": "Bhubaneswar", "avg_temp": 28, "avg_rainfall": 1480, "avg_humidity": 77, "soil_types": ["Red Soil", "Laterite"]},
+  {"id": "TN-CHN", "state_name": "Tamil Nadu", "district_name": "Chennai", "avg_temp": 30, "avg_rainfall": 1200, "avg_humidity": 74, "soil_types": ["Red Soil", "Sandy Loam", "Clay Loam"]},
+  {"id": "TN-CBE", "state_name": "Tamil Nadu", "district_name": "Coimbatore", "avg_temp": 28, "avg_rainfall": 700, "avg_humidity": 68, "soil_types": ["Red Soil", "Black Soil", "Clay Loam"]},
+  {"id": "MH-NGP", "state_name": "Maharashtra", "district_name": "Nagpur", "avg_temp": 28, "avg_rainfall": 1200, "avg_humidity": 70, "soil_types": ["Black Soil", "Clay", "Clay Loam"]},
+  {"id": "MH-MUM", "state_name": "Maharashtra", "district_name": "Mumbai", "avg_temp": 28, "avg_rainfall": 2200, "avg_humidity": 76, "soil_types": ["Red Soil", "Laterite"]},
+  {"id": "GJ-AHM", "state_name": "Gujarat", "district_name": "Ahmedabad", "avg_temp": 27, "avg_rainfall": 800, "avg_humidity": 65, "soil_types": ["Sandy Loam", "Black Soil"]},
+  {"id": "RJ-JPR", "state_name": "Rajasthan", "district_name": "Jaipur", "avg_temp": 26, "avg_rainfall": 600, "avg_humidity": 55, "soil_types": ["Sandy", "Sandy Loam", "Loamy"]},
+  {"id": "MP-BPL", "state_name": "Madhya Pradesh", "district_name": "Bhopal", "avg_temp": 26, "avg_rainfall": 1200, "avg_humidity": 68, "soil_types": ["Black Soil", "Clay", "Loamy"]},
+  {"id": "KA-BLR", "state_name": "Karnataka", "district_name": "Bangalore", "avg_temp": 24, "avg_rainfall": 900, "avg_humidity": 72, "soil_types": ["Red Soil", "Laterite"]},
+  {"id": "AP-HYD", "state_name": "Andhra Pradesh", "district_name": "Hyderabad", "avg_temp": 28, "avg_rainfall": 800, "avg_humidity": 69, "soil_types": ["Red Soil", "Black Soil"]},
+  {"id": "TG-WRG", "state_name": "Telangana", "district_name": "Warangal", "avg_temp": 28, "avg_rainfall": 950, "avg_humidity": 70, "soil_types": ["Red Soil", "Black Soil", "Clay"]},
+  {"id": "BR-PAT", "state_name": "Bihar", "district_name": "Patna", "avg_temp": 26, "avg_rainfall": 1100, "avg_humidity": 72, "soil_types": ["Alluvial", "Loamy"]},
+  {"id": "AS-GHY", "state_name": "Assam", "district_name": "Guwahati", "avg_temp": 25, "avg_rainfall": 2200, "avg_humidity": 80, "soil_types": ["Alluvial", "Clay", "Loamy"]}
+]
